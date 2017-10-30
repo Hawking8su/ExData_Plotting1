@@ -1,0 +1,4 @@
+*.zip
+*.Rhistory
+*.RData
+household_power_consumption
