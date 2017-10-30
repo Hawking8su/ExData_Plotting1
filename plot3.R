@@ -12,13 +12,12 @@ if (!dir.exists("household_power_consumption")){
     unzip("household_power_consumption")
 }
 
+## Read if household_power_compsumption.txt has been read yet.
 if (!exists("houseCompData")){
     ## Read data from 2007-02-01 to 2007-02-02 into houseCompData
     houseCompData <- read_delim("./household_power_consumption/household_power_consumption.txt",
                                 delim=";",col_names = TRUE,
                                 col_types = "ctddddddd", na ="?") 
-    
-    
     houseCompData <- filter(houseCompData, 
                             Date=="1/2/2007" |  Date =="2/2/2007" )
     ##  convert the Date and Time variables to Date/Time classes
