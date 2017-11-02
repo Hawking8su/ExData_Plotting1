@@ -1,7 +1,7 @@
 library(readr)
 library(dplyr)
 
-setwd("E:/R/C4/week1/course_project")
+setwd("E:/R/C4/week1/course_project1")
 ## Download zip file if not exists
 zipUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 if (!file.exists("household_power_consumption.zip")){
@@ -12,7 +12,7 @@ if (!dir.exists("household_power_consumption")){
     unzip("household_power_consumption")
 }
 
-## Read if household_power_compsumption.txt has been read yet.
+## Read if household_power_compsumption.txt hasn't been read yet.
 if (!exists("houseCompData")){
     ## Read data from 2007-02-01 to 2007-02-02 into houseCompData
     houseCompData <- read_delim("./household_power_consumption/household_power_consumption.txt",
@@ -36,6 +36,7 @@ with(houseCompData, points(Time,Sub_metering_3,
 legend("topright", legend=c("Sub_metering_1",
                             "Sub_metering_2",
                             "Sub_metering_3"),
-       col = c("black", "red", "blue"), pch ="-")
+       col = c("black", "red", "blue"), 
+       lty =1, lwd=2.5)
 dev.copy(png, file = "plot3.png")
 dev.off()
